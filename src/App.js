@@ -18,33 +18,33 @@ const singerStyle = {
 function App() {
   return (
     <div className="App">
-      <Person></Person>
-      <Person></Person>
-      <Person></Person>
-      <Person></Person>
+      <Person name='Rubel' nayika='Rojina'></Person>
+      <Person name='Bapparaz' nayika='Rekha'></Person>
+      <Person name='Kuber' nayika='Kopila'></Person>
+
       <h4>New component: created</h4>
-      <Friend></Friend>
-      <Friend></Friend>
-      <Friend></Friend>
-      <Friend></Friend>
+      <Friend name='Mizanur' wife='Mohsina'></Friend>
+      <Friend love='Kohinur' phone='01723'></Friend>
+
     </div>
   );
 }
 
-function Person() {
+function Person(props) {
+
   return (
     <div className='person'>
-      <h1>Shakib Al Hasan</h1>
-      <p>Profession: Cricket</p>
+      <h1>{props.name}</h1>
+      <p>Nayika:{props.nayika}</p>
     </div>
   )
 }
 
-function Friend() {
+function Friend(props) {
   return (
     <div className='container'>
-      <h1>Name: Md Mizanur</h1>
-      <p>Job: Unemployed</p>
+      <h1>{props.name} {props.love}</h1>
+      <p>{props.wife} {props.phone}</p>
     </div>
   )
 }
