@@ -3,10 +3,12 @@ import './App.css';
 import { buildQueries } from '@testing-library/react';
 
 const number = 5555;
-const singer = {
-  name: 'Md Mizanur Rahman', job: 'unemployed'
-};
-const singer2 = { name: 'Mohsina Jahan', job: 'wife' };
+const singers = [
+  { name: 'Md Mizanur Rahman', job: 'unemployed' },
+  { name: 'Mohsina Jahan', job: 'wife' },
+  { name: 'Molla Kohi', job: 'Restaurant' },
+  { name: 'Nehikak', job: 'Faltu' }
+]
 
 const singerStyle = {
   color: 'blue',
@@ -16,11 +18,23 @@ const singerStyle = {
 
 
 function App() {
+
+  const nayoks = ['Rubel', 'Bapparaz', 'Kuber', 'Jasim', 'Salman Shah', 'Riaz', 'Anowar']
   return (
     <div className="App">
-      <Person name='Rubel' nayika='Rojina'></Person>
-      <Person name='Bapparaz' nayika='Rekha'></Person>
-      <Person name='Kuber' nayika='Kopila'></Person>
+      {
+        nayoks.map(nayok => <li>Name: {nayok}</li>)
+      }
+      {
+        singers.map(singer => <Person name={singer.name}></Person>)
+      }
+      {/*{
+        nayoks.map(nayok => <Person name={nayok}></Person>)
+      }*/}
+
+      {/*<Person name={nayoks[0]} nayika='Rojina'></Person>
+      <Person name={nayoks[1]} nayika='Rekha'></Person>
+    <Person name={nayoks[2]} nayika='Kopila'></Person>*/}
 
       <h4>New component: created</h4>
       <Friend name='Mizanur' wife='Mohsina'></Friend>
@@ -35,7 +49,7 @@ function Person(props) {
   return (
     <div className='person'>
       <h1>{props.name}</h1>
-      <p>Nayika:{props.nayika}</p>
+      <p>{props.nayika}</p>
     </div>
   )
 }
